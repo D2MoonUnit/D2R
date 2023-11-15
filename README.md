@@ -15,5 +15,9 @@ https://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-pa
 
 If you want to launch multiple copies of D2R, you will need to kill the Multiple Instance handle after each launch.
 
+I have included a copy of this script batch file named "CloseD2RHandle.bat", which you will need to place inside the handle directory and then run it as an administrator in order to kill the Check For Multiple Instances handle inside D2R.exe.
+
+You can get Handle from SysInternals: https://learn.microsoft.com/en-us/sysinternals/downloads/handle
+
 More infomation can be found here:  
 https://us.forums.blizzard.com/en/d2r/t/how-to-multiple-d2r-instances-requires-two-accounts/60546
