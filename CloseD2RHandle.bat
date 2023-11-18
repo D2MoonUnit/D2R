@@ -29,7 +29,7 @@ if '%errorlevel%' NEQ '0' (
 
 
 
-FOR /F %%I in ('handle64 -p D2R.exe -a "DiabloII Check For Other Instances" -nobanner') do set STOP_FLAG=%%I
+FOR /F %%I in ('handle64 -accepteula -p D2R.exe -a "DiabloII Check For Other Instances" -nobanner') do set STOP_FLAG=%%I
 
 
 :: PRIMARY SCRIPT ::
@@ -49,7 +49,7 @@ FOR /F %%I in ('handle64 -p D2R.exe -a "DiabloII Check For Other Instances" -nob
 mode con cols=51 lines=16 >nul
 
 :: SET PID/HEX VALUES FOR PROCESS HANDLE ::
-    FOR /F "tokens=2,3 delims=:" %%A in ('handle64 -p D2R.exe -a ^"DiabloII Check For Other Instances^"') do (
+    FOR /F "tokens=2,3 delims=:" %%A in ('handle64 -accepteula -p D2R.exe -a ^"DiabloII Check For Other Instances^"') do (
         set pid=%%A
         set hex=%%B
     )
@@ -74,10 +74,10 @@ mode con cols=51 lines=16 >nul
     echo         *.......... HEX: [ %hex%     ] &echo.
 
 :: CLOSE HANDLE (suppressed output) ::
-    handle64 -p %pid% -c %hex% -y -nobanner >nul &echo.
+    handle64 -accepteula -p %pid% -c %hex% -y -nobanner >nul &echo.
 
 
-    FOR /F %%I in ('handle64 -p D2R.exe -a "DiabloII Check For Other Instances" -nobanner') do set STOP_FLAG=%%I & echo.
+    FOR /F %%I in ('handle64 -accepteula -p D2R.exe -a "DiabloII Check For Other Instances" -nobanner') do set STOP_FLAG=%%I & echo.
 
     if %STOP_FLAG% == No (
 	echo     #######################################
